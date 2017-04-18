@@ -32,7 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,11 +49,131 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContext\AquariumContext.cs" />
+    <Compile Include="Migrations\201704171819307_First.cs" />
+    <Compile Include="Migrations\201704171819307_First.Designer.cs">
+      <DependentUpon>201704171819307_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704171902343_AddTables.cs" />
+    <Compile Include="Migrations\201704171902343_AddTables.Designer.cs">
+      <DependentUpon>201704171902343_AddTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704171941578_Reset.cs" />
+    <Compile Include="Migrations\201704171941578_Reset.Designer.cs">
+      <DependentUpon>201704171941578_Reset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172005481_UpdateOceans.cs" />
+    <Compile Include="Migrations\201704172005481_UpdateOceans.Designer.cs">
+      <DependentUpon>201704172005481_UpdateOceans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172021025_UpdateAquaticLife.cs" />
+    <Compile Include="Migrations\201704172021025_UpdateAquaticLife.Designer.cs">
+      <DependentUpon>201704172021025_UpdateAquaticLife.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172024263_Update-Database.cs" />
+    <Compile Include="Migrations\201704172024263_Update-Database.Designer.cs">
+      <DependentUpon>201704172024263_Update-Database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172042515_CreateAquaticLifeOceanTableLink.cs" />
+    <Compile Include="Migrations\201704172042515_CreateAquaticLifeOceanTableLink.Designer.cs">
+      <DependentUpon>201704172042515_CreateAquaticLifeOceanTableLink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172049574_UpdateForeignKeyOcean.cs" />
+    <Compile Include="Migrations\201704172049574_UpdateForeignKeyOcean.Designer.cs">
+      <DependentUpon>201704172049574_UpdateForeignKeyOcean.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172055395_UpdateForeignKeyAgain.cs" />
+    <Compile Include="Migrations\201704172055395_UpdateForeignKeyAgain.Designer.cs">
+      <DependentUpon>201704172055395_UpdateForeignKeyAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172238208_AddDataJoinTables.cs" />
+    <Compile Include="Migrations\201704172238208_AddDataJoinTables.Designer.cs">
+      <DependentUpon>201704172238208_AddDataJoinTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172244132_updateValues.cs" />
+    <Compile Include="Migrations\201704172244132_updateValues.Designer.cs">
+      <DependentUpon>201704172244132_updateValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172246320_updatevaluesagain.cs" />
+    <Compile Include="Migrations\201704172246320_updatevaluesagain.Designer.cs">
+      <DependentUpon>201704172246320_updatevaluesagain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172253402_try update value.cs" />
+    <Compile Include="Migrations\201704172253402_try update value.Designer.cs">
+      <DependentUpon>201704172253402_try update value.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172255202_tryagain5thtimeacharm.cs" />
+    <Compile Include="Migrations\201704172255202_tryagain5thtimeacharm.Designer.cs">
+      <DependentUpon>201704172255202_tryagain5thtimeacharm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172257350_blah.cs" />
+    <Compile Include="Migrations\201704172257350_blah.Designer.cs">
+      <DependentUpon>201704172257350_blah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172259198_blah2.cs" />
+    <Compile Include="Migrations\201704172259198_blah2.Designer.cs">
+      <DependentUpon>201704172259198_blah2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Aquarium.cs" />
+    <Compile Include="Models\AquaticLife.cs" />
+    <Compile Include="Models\Ocean.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201704171819307_First.resx">
+      <DependentUpon>201704171819307_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704171902343_AddTables.resx">
+      <DependentUpon>201704171902343_AddTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704171941578_Reset.resx">
+      <DependentUpon>201704171941578_Reset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172005481_UpdateOceans.resx">
+      <DependentUpon>201704172005481_UpdateOceans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172021025_UpdateAquaticLife.resx">
+      <DependentUpon>201704172021025_UpdateAquaticLife.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172024263_Update-Database.resx">
+      <DependentUpon>201704172024263_Update-Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172042515_CreateAquaticLifeOceanTableLink.resx">
+      <DependentUpon>201704172042515_CreateAquaticLifeOceanTableLink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172049574_UpdateForeignKeyOcean.resx">
+      <DependentUpon>201704172049574_UpdateForeignKeyOcean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172055395_UpdateForeignKeyAgain.resx">
+      <DependentUpon>201704172055395_UpdateForeignKeyAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172238208_AddDataJoinTables.resx">
+      <DependentUpon>201704172238208_AddDataJoinTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172244132_updateValues.resx">
+      <DependentUpon>201704172244132_updateValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172246320_updatevaluesagain.resx">
+      <DependentUpon>201704172246320_updatevaluesagain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172253402_try update value.resx">
+      <DependentUpon>201704172253402_try update value.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172255202_tryagain5thtimeacharm.resx">
+      <DependentUpon>201704172255202_tryagain5thtimeacharm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172257350_blah.resx">
+      <DependentUpon>201704172257350_blah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172259198_blah2.resx">
+      <DependentUpon>201704172259198_blah2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
