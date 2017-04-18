@@ -155,12 +155,17 @@ namespace AquariumEntityFramework
             //You should have to do a DB.aquariums.first(f => f.Name = "Atlanta").Aquaticlife
 
 
-            var GAAquaticLife = db.Aquariums.First(f => f.AquariumName == "Georgia Aquarium").AquaticLife;
+            //var GAAquaticLife = db.Aquariums.First(f => f.AquariumName == "Georgia Aquarium").AquaticLife;
+            //var GeorgiaAquaticLife = db.Aquariums.Include(i => i.AquaticLifeName).First(w => w.AquariumName == "Georgia Aquarium");
 
-            foreach (var item in GAAquaticLife)
-            {
-                Console.WriteLine(item.AquaticLifeName);
-            }
+            //foreach (var item in GAAquaticLife)
+            //{
+            //    Console.WriteLine(item.AquaticLifeName);
+            //}
+
+            var qry = db.Aquariums.Where(Aqua => Aqua.AquariumName == "Georgia Aquarium")
+                 .Select(Aqua => new { Aqua.Id, Aqua.AquariumName });
+
 
 
             //var GAAquaticLife = db.Aquariums.Where(f => f.AquariumName == "Georgia Aquarium").Select(s => s.AquaticLife.Aqu;
@@ -170,7 +175,20 @@ namespace AquariumEntityFramework
             //    Console.WriteLine(item.AquaticLifeName);
             //}
 
-            Console.WriteLine("Hello");
+            //A SQL Query that, given an Ocean, What Aquariums have fish from that ocean
+
+            //var query = db.Aquariums.Join(db.AquaticLifes,
+            //aqName => aqName.AquariumName,
+            //aquaticLifeName => aquaticLifeName.AquaticLifeName,
+            //(aqName, aquaticLifeName) => new { AquariumName = aqName, AquaticLifeName = aquaticLifeName });
+
+            Console.WriteLine();
+
+            Console.WriteLine(qry);
+
+
+
+           
         }
     }
 }
